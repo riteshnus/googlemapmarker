@@ -1,0 +1,17 @@
+#map,#marker_table_wrapper {
+  height: 100%;
+  width:50%;
+  float:left;
+}
+#marker_table_scroll{
+  overflow:auto;
+}
+#map_table{
+  height: 50%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

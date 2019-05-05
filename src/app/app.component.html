@@ -1,20 +1,42 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div id="map_table">
+  <div #map style="height:400px;width:400px"></div>
+  <div id="marker_table_wrapper">
+    <div id="marker_table_scroll">
+      <table border="1">
+        <thead>
+        <tr>
+          <th>Marker Type</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+        </tr>
+        </thead>
+        <tbody id="marker_table_body">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div>
+  <button (click)="showMarkers();" style="color:green;">Show Markers</button>
+  <button (click)="clearMarkers();" style="color:orange;">Hide Markers</button>
+  <button (click)="deleteMarkers();" style="color:red;">Delete Markers</button>
+</div>
+<div style="margin:5px;display:block;">
+  Add marker on ISS building
+  <button onclick="addMarker(1.292304, 103.777308, 'iss_test')">Add ISS marker</button>
+
+</div>
+<div style="margin:5px;display:block;">
+  Add marker on specific latitude and longitude
+  Lat: <input type="number" id="input_lat" value="1.292304"/> Lng: <input type="number" id="input_lng" value="103.777308"/>
+  <button (click)="addMarker(parseFloat(document.getElementById('input_lat').value), parseFloat(document.getElementById('input_lng').value), 'distribution_center')">Add Distribution Center</button>
+  <button (click)="addMarker(parseFloat(document.getElementById('input_lat').value), parseFloat(document.getElementById('input_lng').value), 'polyclinic')">Add Polyclinic Center</button>
+</div>
+
+<div style="margin:5px;display:block;">
+  Insert markers from CSV file
+  <input type="file" id="csvfile" />
+  <input type="button" id="viewfile" value="Import from CSV" (click)="importFile()" />
+</div>
 
